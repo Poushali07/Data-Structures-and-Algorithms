@@ -1,3 +1,3 @@
 # Data-Structures-and-Algorithms
 
-<h4>Solved DSA solutions.</h4>
+<h4>Solved DSA java solutions.</h4>
