@@ -1,0 +1,56 @@
+class Solution {
+    public void nextPermutation(int[] nums) {
+        
+        if(nums.length ==1)
+            return;
+        int index1;
+        int index2;
+        
+        //find index1
+        for(int i= nums.length-2; i>=0; i--) /*we start from 2nd last element becpz we have to                                                     *compare i+1*/
+        {
+            if(nums[i] < nums[i+1])
+        {
+             index1 = i;
+             break;
+        }
+        }
+               if(index1 < 0)
+               reverse[nums, 0, nums.length];
+        //find index2
+               else
+               {
+                   for(int i=nums.length; i>=0; i--)
+                   {
+                       if(nums[i] > nums[index1])
+                           index2 =i;
+                       break;
+                   }
+               }
+               
+               swap(nums[], nums[index1], nums[index2]);
+               reverse(nums, (index+1)+1, nums.length-1);               
+    }
+    
+    public static int[] reverse(int arr[], int start, int end)
+    {
+        int temp;
+        while(start< end)
+        {
+            temp = arr[start];
+            arr[start] = arr[end];
+            arr[end] = temp;
+            start++;
+            end--;
+        }
+        return arr;
+    }
+    
+    public static int[] swap(int[] arr, a , b)
+    {
+        int temp = arr[a];
+        arr[a] = arr[b];
+        arr[b] = temp;
+      return arr;  
+    }
+}
