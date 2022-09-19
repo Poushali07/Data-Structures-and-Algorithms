@@ -1,0 +1,23 @@
+class Solution {
+    public int[] productExceptSelf(int[] nums) {
+        int n = nums.length;
+        int ans[] = new int[n];
+        ans[0] = 1;
+        int right = 1;
+        
+        //calculating the left array
+        for(int i=1; i<n; i++)
+        {
+            ans[i] = ans[i-1] * nums[i-1];
+        }
+        
+        //updating ans[] using right
+        //since the value of nums[i] is multipled after right is used in ans[], the value           of nums[i] is not included in ans[i]
+        for(int i=n-1; i>=0; i--)
+        {
+            ans[i] = ans[i] * right;
+            right = right * nums[i];
+        }
+        return ans;
+    }
+}
